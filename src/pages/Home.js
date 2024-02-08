@@ -1,14 +1,26 @@
+import React, { useEffect, useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const products = [...Array(10)].map(() => ({
-    id: faker.datatype.uuid(),
-    name: faker.commerce.productName(),
-    description: faker.commerce.productDescription(),
-    price: faker.commerce.price(),
-    image: faker.image.imageUrl(640, 480, undefined, true),
-  }));
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const storedProducts = localStorage.getItem('products');
+    if (storedProducts) {
+      setProducts(JSON.parse(storedProducts));
+    } else {
+      const newProducts = [...Array(10)].map(() => ({
+        id: faker.datatype.uuid(),
+        name: faker.commerce.productName(),
+        description: faker.commerce.productDescription(),
+        price: faker.commerce.price(),
+        image: faker.image.imageUrl(640, 480, undefined, true),
+      }));
+      localStorage.setItem('products', JSON.stringify(newProducts));
+      setProducts(newProducts);
+    }
+  }, []);
 
   return (
     <div>
