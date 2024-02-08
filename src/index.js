@@ -1,3 +1,5 @@
+// index.js
+
 import App  from "./App";
 import {createRoot} from "react-dom/client";
 
