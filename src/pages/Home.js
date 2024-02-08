@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { Link } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
 
 const Home = ({ cart, addToCart }) => {
   const [products, setProducts] = useState([]);
@@ -26,17 +27,20 @@ const Home = ({ cart, addToCart }) => {
     }
   }, []);
 
-
-
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const handleFilterChange = (filters) => {
+    console.log(filters);
+  };
+
   return (
     <div>
       <h1>Product List</h1>
+      <Sidebar onFilterChange={handleFilterChange} />
       <div>
       <h2> Cart ({cart.length} items)
           <Link to="/cart">
