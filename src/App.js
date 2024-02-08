@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Cart from './pages/Cart';
+import Sidebar from './pages/Sidebar';
 
 function App() {
   const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
