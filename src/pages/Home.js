@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { faker } from '@faker-js/faker';
-import { fetchProducts } from '../components/apiService';
+import { fetchProducts } from '../api/apiService';
 import ProductList from '../components/ProductList';
 import Pagination from '../components/Pagination';
 import Sidebar from '../components/Sidebar';

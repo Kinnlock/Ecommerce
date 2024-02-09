@@ -10,6 +10,8 @@ import Profile from './pages/Profile';
 import Navbar from './components/NavBar';
 import Checkout from './pages/Checkout';
 import FavoritesPage from './pages/FavoritesPage';
+import Signup from './components/Signup';
+import Login from './components/Login';
 
 
 function App() {
@@ -51,6 +53,11 @@ function App() {
     localStorage.setItem('favorites', JSON.stringify(newFavoriteIds));
   };
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
+
   return (
     <Router>
       <Navbar cartItemCount={totalItemCount} />
@@ -58,11 +65,14 @@ function App() {
         <Route path="/" element={<Home cart={cart} addToCart={addToCart} toggleFavorite={toggleFavorite} favoriteIds={favoriteIds} />} />
         <Route path="/product/:productId" element={<ProductDetailPage addToCart={addToCart} />} />
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
-
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
