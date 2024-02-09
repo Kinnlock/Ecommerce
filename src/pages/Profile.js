@@ -21,7 +21,8 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const userProfile = await AuthService.getProfile();
-        setProfile(userProfile);
+        console.log(userProfile)
+        setProfile(userProfile.data);
       } catch (error) {
         console.error('Failed to fetch profile', error);
       }
