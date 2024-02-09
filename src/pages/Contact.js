@@ -2,6 +2,9 @@
 
 import { useForm } from 'react-hook-form';
 
+import '../css/contact.css';
+
+
 const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -12,9 +15,9 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div className="contact-card">
       <h1>Contact Page</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
         <div>
           <label htmlFor="name">Nom :</label>
           <input
