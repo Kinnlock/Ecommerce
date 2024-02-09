@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Badge } from 'react-bootstrap';
 
 const NavigationBar = ({ cartItemCount }) => {
-  const isAuthenticated = !!localStorage.getItem('token'); // Check if the user is authenticated
+  const isAuthenticated = !!localStorage.getItem('token');
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -13,7 +13,7 @@ const NavigationBar = ({ cartItemCount }) => {
 
   return (
     <Navbar bg="light" expand="sm">
-      <Navbar.Brand as={Link} to="/">YourAppName</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/">E-Commerce</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">

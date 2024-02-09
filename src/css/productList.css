@@ -1,0 +1,84 @@
+/* ProductList Card */
+
+.product-card {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px 10px;
+  border-radius: 5px;
+  gap: 20px;
+  margin-right: 10px;
+}
+
+.product-image img {
+  width: 150px;
+  height: auto;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.product-actions button {
+  cursor: pointer;
+}
+
+.product-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Add Cart Button */
+.add-to-cart-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Add Favorites Button */
+.add-to-favorites-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-favorites-btn:hover {
+  background-color: #1e7e34;
+}
+
+/* Remove Favorites Button */
+.remove-from-favorites-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-from-favorites-btn:hover {
+  background-color: #c82333;
+}

@@ -1,6 +1,6 @@
 // App.js
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -15,6 +15,14 @@ import Login from './components/Login';
 
 
 function App() {
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#FFF3CF";
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
+
   const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
   const [cart, setCart] = useState(initialCart);
 

@@ -1,6 +1,7 @@
 // Sidebar.js
 
 import { useState, useEffect } from 'react';
+import '../css/sidebar.css';
 
 const Sidebar = ({ onFilterChange, products }) => {
   const [priceRange, setPriceRange] = useState({ min: '', max: '' });

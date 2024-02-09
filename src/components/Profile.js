@@ -21,7 +21,8 @@ const Profile = () => {
 
   if (!profile) return <div>Loading...</div>;
 
-  // Display profile JSX goes here
+ // Abandon du joueur francais
+
 };
 
 export default Profile;

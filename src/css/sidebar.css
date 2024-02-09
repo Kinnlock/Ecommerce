@@ -1,0 +1,38 @@
+.Sidebar {
+  background-color: #fff;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Sidebar div {
+  margin-bottom: 2px;
+}
+
+.Sidebar label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Sidebar input, .Sidebar select, .Sidebar button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+.Sidebar button {
+  cursor: pointer;
+  background-color: #3f3f3f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.Sidebar button:hover {
+  background-color: #282828;
+}

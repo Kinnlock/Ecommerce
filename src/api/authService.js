@@ -9,7 +9,6 @@ const adminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzRiMzc3NzA
 const AuthService = {
   signup: (userData) => wretch(`${baseUrl}/signup`).post(userData).json(),
   login: (credentials) => wretch(`${baseUrl}/login`).post(credentials).json(),
-  getProfile: () => wretch(`${baseUrl}/users/me`).auth(`Bearer ${localStorage.getItem('token')}`).get().json(),
 
     getProfile: () =>
       wretch(`${baseUrl}/users/me`)
