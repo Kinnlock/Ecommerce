@@ -10,7 +10,7 @@ import Sidebar from '../components/Sidebar';
 
 import '../css/home.css';
 
-const Home = ({ cart, addToCart }) => {
+const Home = ({ cart, addToCart, toggleFavorite, favoriteIds }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,7 +87,7 @@ const Home = ({ cart, addToCart }) => {
             </div>
           ))}
         </div>
-        <ProductList products={currentProducts} addToCart={addToCart} />
+        <ProductList products={currentProducts} addToCart={addToCart} toggleFavorite={toggleFavorite} favoriteIds={favoriteIds} />
         <Pagination totalPages={Math.ceil(filteredProducts.length / productsPerPage)} paginate={paginate} />
       </div>
     </div>

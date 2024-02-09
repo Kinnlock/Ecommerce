@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import Navbar from './components/NavBar';
 import Checkout from './pages/Checkout';
+import FavoritesPage from './pages/FavoritesPage';
 
 
 function App() {
@@ -37,16 +38,31 @@ function App() {
 
   const totalItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
+  const [favoriteIds, setFavoriteIds] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
+
+  const toggleFavorite = (productId) => {
+    let newFavoriteIds;
+    if (favoriteIds.includes(productId)) {
+      newFavoriteIds = favoriteIds.filter(id => id !== productId);
+    } else {
+      newFavoriteIds = [...favoriteIds, productId];
+    }
+    setFavoriteIds(newFavoriteIds);
+    localStorage.setItem('favorites', JSON.stringify(newFavoriteIds));
+  };
+
   return (
     <Router>
       <Navbar cartItemCount={totalItemCount} />
       <Routes>
-        <Route path="/" element={<Home cart={cart} addToCart={addToCart} />} />
+        <Route path="/" element={<Home cart={cart} addToCart={addToCart} toggleFavorite={toggleFavorite} favoriteIds={favoriteIds} />} />
         <Route path="/product/:productId" element={<ProductDetailPage addToCart={addToCart} />} />
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </Router>
   );

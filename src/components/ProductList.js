@@ -2,7 +2,7 @@
 
 import { Link } from 'react-router-dom';
 
-const ProductList = ({ products, addToCart }) => (
+const ProductList = ({ products, addToCart, toggleFavorite, favoriteIds }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
     {products.map((product) => (
       <div key={product.id} style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '5px' }}>
@@ -12,7 +12,12 @@ const ProductList = ({ products, addToCart }) => (
         </Link>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
+        <button onClick={() => addToCart && addToCart(product)}>Add to Cart</button>
+        {favoriteIds && (
+          <button onClick={() => toggleFavorite(product.id)}>
+            {favoriteIds.includes(product.id) ? 'Remove from Favorites' : 'Add to Favorites'}
+          </button>
+        )}
       </div>
     ))}
   </div>

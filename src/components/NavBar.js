@@ -3,7 +3,7 @@ import { Navbar, Nav, Badge } from 'react-bootstrap';
 
 const NavigationBar = ({ cartItemCount }) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="sm">
       <Navbar.Brand as={Link} to="/">YourAppName</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -11,6 +11,7 @@ const NavigationBar = ({ cartItemCount }) => {
           <Nav.Link as={Link} to="/">Home</Nav.Link>
           <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
           <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+          <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
         </Nav>
 
         <Nav>

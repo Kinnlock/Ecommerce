@@ -12,9 +12,12 @@ const ProductDetailPage = ({ addToCart }) => {
       {product ? (
         <>
           <h1>{product.name}</h1>
-          <img src={product.image} alt="Product" style={{ width: '100%', height: 'auto' }} />
+          <img src={product.image} alt={product.name} style={{ width: '100%', height: 'auto' }} />
           <p>{product.description}</p>
-          <p>${product.price}</p>
+          <p>Price: ${product.price}</p>
+          <p>Brand: {product.brand}</p>
+          <p>Color: {product.color}</p>
+          <p>Stock: {product.stock}</p>
           <button onClick={() => addToCart(product)}>Add to Cart</button>
         </>
       ) : (
