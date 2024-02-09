@@ -1,7 +1,11 @@
 // Cart.js
 
+import { useNavigate } from 'react-router-dom';
+
 const Cart = ({ cart, removeFromCart }) => {
   const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -29,6 +33,7 @@ const Cart = ({ cart, removeFromCart }) => {
       <div style={{ marginTop: '20px', textAlign: 'right' }}>
         <strong>Total: ${totalPrice.toFixed(2)}</strong>
       </div>
+      <button onClick={() => navigate('/checkout')}>Finalize Order</button>
     </div>
   );
 };

@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+// Sidebar.js
 
-const Sidebar = ({ onFilterChange }) => {
+import { useState, useEffect } from 'react';
+
+const Sidebar = ({ onFilterChange, products }) => {
   const [priceRange, setPriceRange] = useState({ min: '', max: '' });
   const [publishDate, setPublishDate] = useState('');
   const [selectedBrand, setSelectedBrand] = useState('');
+  const [brands, setBrands] = useState([]);
+
+  useEffect(() => {
+    const uniqueBrands = [...new Set(products.map(product => product.brand))];
+    setBrands(uniqueBrands);
+  }, [products]);
 
   const handleFilterChange = () => {
     onFilterChange({
@@ -54,8 +62,9 @@ const Sidebar = ({ onFilterChange }) => {
           onChange={(e) => setSelectedBrand(e.target.value)}
         >
           <option value="">Sélectionnez une marque</option>
-          <option value="MarqueA">Marque A</option>
-          <option value="MarqueB">Marque B</option>
+          {brands.map(brand => (
+            <option key={brand} value={brand}>{brand}</option>
+          ))}
         </select>
       </div>
 

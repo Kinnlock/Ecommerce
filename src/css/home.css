@@ -1,0 +1,25 @@
+/* home.css */
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.main-content {
+  flex: 3;
+  padding-left: 20px;
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding-left: 0;
+  }
+}

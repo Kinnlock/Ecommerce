@@ -5,6 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Cart from './pages/Cart';
+import Contact from './pages/Contact';
+import Profile from './pages/Profile';
+import Navbar from './components/NavBar';
+import Checkout from './pages/Checkout';
 
 
 function App() {
@@ -31,12 +35,18 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
+  const totalItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <Router>
+      <Navbar cartItemCount={totalItemCount} />
       <Routes>
         <Route path="/" element={<Home cart={cart} addToCart={addToCart} />} />
         <Route path="/product/:productId" element={<ProductDetailPage addToCart={addToCart} />} />
         <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );
