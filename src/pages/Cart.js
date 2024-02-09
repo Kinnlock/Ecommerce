@@ -10,7 +10,7 @@ const Cart = ({ cart, removeFromCart }) => {
   return (
     <div>
       <h1>Cart</h1>
-      {cart.length === 0 ? (
+      {!cart.length ? (
         <p>Your cart is empty.</p>
       ) : (
         <div>

@@ -6,7 +6,7 @@ const Checkout = () => {
   return (
     <div>
       <h1>Finalize your order</h1>
-      <PayPalScriptProvider options={{ "client-id": "your_client_id_here" }}>
+      <PayPalScriptProvider options={{ "client-id": process.env.REACT_APP_PAYPAL_CLIENT_ID }}>
         <PayPalButtons
           style={{ layout: "vertical" }}
           createOrder={(data, actions) => {
